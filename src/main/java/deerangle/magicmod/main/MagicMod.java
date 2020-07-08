@@ -28,6 +28,7 @@ public class MagicMod {
     private void setup(FMLCommonSetupEvent event) {
         for (Biome b : Biome.BIOMES) {
             WorldGen.addAmethystOre(b);
+            WorldGen.addSiltStone(b);
         }
     }
 
