@@ -3,5 +3,6 @@
     "item.magicmod.advanced_wand": "Fortgeschrittener Zauberstab",
     "item.magicmod.master_wand": "Meisterzauberstab",
     "block.magicmod.wand_table": "Zauberstabtisch",
+    "block.magicmod.amethyst_ore": "Amethyst Erz",
     "itemGroup.magicmod": "Zaubermod"
 }
