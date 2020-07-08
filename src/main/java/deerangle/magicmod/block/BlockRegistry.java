@@ -15,19 +15,24 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 public class BlockRegistry {
 
     public static Block WAND_TABLE;
+    public static Block SILT_STONE;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         WAND_TABLE = new WandTableBlock(Block.Properties.create(Material.ROCK, MaterialColor.BLUE))
                 .setRegistryName("wand_table");
-        event.getRegistry().registerAll(WAND_TABLE);
+        SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
+                .setRegistryName("silt_stone");
+        event.getRegistry().registerAll(WAND_TABLE, SILT_STONE);
     }
 
     @SubscribeEvent
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
         BlockItem WAND_TABLE_ITEM = new BlockItem(WAND_TABLE, new Item.Properties().group(MagicMod.tab));
         WAND_TABLE_ITEM.setRegistryName(WAND_TABLE.getRegistryName());
-        event.getRegistry().registerAll(WAND_TABLE_ITEM);
+        BlockItem SILT_STONE_ITEM = new BlockItem(SILT_STONE, new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_ITEM.setRegistryName(SILT_STONE.getRegistryName());
+        event.getRegistry().registerAll(WAND_TABLE_ITEM, SILT_STONE_ITEM);
     }
 
 }
