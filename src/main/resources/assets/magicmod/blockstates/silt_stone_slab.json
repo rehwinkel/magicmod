@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "magicmod:block/silt_stone_slab" },
+        "type=top": { "model": "magicmod:block/silt_stone_slab_top" },
+        "type=double": { "model": "magicmod:block/silt_stone" }
+    }
+}

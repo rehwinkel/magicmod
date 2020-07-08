@@ -2,6 +2,9 @@ package deerangle.magicmod.block;
 
 import deerangle.magicmod.main.MagicMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -19,6 +22,12 @@ public class BlockRegistry {
     public static Block AMETHYST_SILT_ORE;
     public static Block SILT_STONE;
     public static Block SILT_STONE_BRICKS;
+    public static Block SILT_STONE_SLAB;
+    public static Block SILT_STONE_BRICK_SLAB;
+    public static Block SILT_STONE_STAIRS;
+    public static Block SILT_STONE_BRICK_STAIRS;
+    public static Block SILT_STONE_WALL;
+    public static Block SILT_STONE_BRICK_WALL;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -29,9 +38,20 @@ public class BlockRegistry {
                 .setRegistryName("amethyst_silt_ore");
         SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
                 .setRegistryName("silt_stone");
-        SILT_STONE_BRICKS = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
-                .setRegistryName("silt_stone_bricks");
-        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE, AMETHYST_SILT_ORE, SILT_STONE, SILT_STONE_BRICKS);
+        SILT_STONE_BRICKS = new Block(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_bricks");
+        SILT_STONE_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_slab");
+        SILT_STONE_BRICK_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE))
+                .setRegistryName("silt_stone_brick_slab");
+        SILT_STONE_STAIRS = new StairsBlock(() -> SILT_STONE.getDefaultState(), Block.Properties.from(SILT_STONE))
+                .setRegistryName("silt_stone_stairs");
+        SILT_STONE_BRICK_STAIRS = new StairsBlock(() -> SILT_STONE_BRICKS.getDefaultState(),
+                Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_brick_stairs");
+        SILT_STONE_WALL = new WallBlock(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_wall");
+        SILT_STONE_BRICK_WALL = new WallBlock(Block.Properties.from(SILT_STONE))
+                .setRegistryName("silt_stone_brick_wall");
+        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE, AMETHYST_SILT_ORE, SILT_STONE, SILT_STONE_BRICKS,
+                SILT_STONE_SLAB, SILT_STONE_STAIRS, SILT_STONE_WALL, SILT_STONE_BRICK_SLAB, SILT_STONE_BRICK_STAIRS,
+                SILT_STONE_BRICK_WALL);
     }
 
     @SubscribeEvent
@@ -46,8 +66,24 @@ public class BlockRegistry {
         SILT_STONE_ITEM.setRegistryName(SILT_STONE.getRegistryName());
         BlockItem SILT_STONE_BRICKS_ITEM = new BlockItem(SILT_STONE_BRICKS, new Item.Properties().group(MagicMod.tab));
         SILT_STONE_BRICKS_ITEM.setRegistryName(SILT_STONE_BRICKS.getRegistryName());
+        BlockItem SILT_STONE_SLAB_ITEM = new BlockItem(SILT_STONE_SLAB, new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_SLAB_ITEM.setRegistryName(SILT_STONE_SLAB.getRegistryName());
+        BlockItem SILT_STONE_BRICK_SLAB_ITEM = new BlockItem(SILT_STONE_BRICK_SLAB,
+                new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_BRICK_SLAB_ITEM.setRegistryName(SILT_STONE_BRICK_SLAB.getRegistryName());
+        BlockItem SILT_STONE_STAIRS_ITEM = new BlockItem(SILT_STONE_STAIRS, new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_STAIRS_ITEM.setRegistryName(SILT_STONE_STAIRS.getRegistryName());
+        BlockItem SILT_STONE_BRICK_STAIRS_ITEM = new BlockItem(SILT_STONE_BRICK_STAIRS,
+                new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_BRICK_STAIRS_ITEM.setRegistryName(SILT_STONE_BRICK_STAIRS.getRegistryName());
+        BlockItem SILT_STONE_WALL_ITEM = new BlockItem(SILT_STONE_WALL, new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_WALL_ITEM.setRegistryName(SILT_STONE_WALL.getRegistryName());
+        BlockItem SILT_STONE_BRICK_WALL_ITEM = new BlockItem(SILT_STONE_BRICK_WALL,
+                new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_BRICK_WALL_ITEM.setRegistryName(SILT_STONE_BRICK_WALL.getRegistryName());
         event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_SILT_ORE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM,
-                SILT_STONE_BRICKS_ITEM);
+                SILT_STONE_BRICKS_ITEM, SILT_STONE_SLAB_ITEM, SILT_STONE_BRICK_SLAB_ITEM, SILT_STONE_STAIRS_ITEM,
+                SILT_STONE_BRICK_STAIRS_ITEM, SILT_STONE_WALL_ITEM, SILT_STONE_BRICK_WALL_ITEM);
     }
 
 }

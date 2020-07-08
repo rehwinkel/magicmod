@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "magicmod:silt_stone_wall",
+    "magicmod:silt_stone_brick_wall"
+  ]
+}

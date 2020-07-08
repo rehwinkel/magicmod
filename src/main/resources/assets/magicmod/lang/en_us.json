@@ -7,5 +7,11 @@
     "block.magicmod.amethyst_silt_ore": "Amethyst Ore",
     "block.magicmod.silt_stone": "Siltstone",
     "block.magicmod.silt_stone_bricks": "Siltstone Bricks",
+    "block.magicmod.silt_stone_slab": "Siltstone Slab",
+    "block.magicmod.silt_stone_brick_slab": "Siltstone Brick Slab",
+    "block.magicmod.silt_stone_stairs": "Siltstone Stairs",
+    "block.magicmod.silt_stone_brick_stairs": "Siltstone Brick Stairs",
+    "block.magicmod.silt_stone_wall": "Siltstone Wall",
+    "block.magicmod.silt_stone_brick_wall": "Siltstone Brick Wall",
     "itemGroup.magicmod": "Magic Mod"
 }

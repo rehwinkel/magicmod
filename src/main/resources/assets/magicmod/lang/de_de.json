@@ -7,5 +7,11 @@
     "block.magicmod.amethyst_silt_ore": "Amethysterz",
     "block.magicmod.silt_stone": "Schluffstein",
     "block.magicmod.silt_stone_bricks": "Schluffsteinziegel",
+    "block.magicmod.silt_stone_slab": "Schluffsteinstufe",
+    "block.magicmod.silt_stone_brick_slab": "Schluffsteinziegelstufe",
+    "block.magicmod.silt_stone_stairs": "Schluffsteintreppe",
+    "block.magicmod.silt_stone_brick_stairs": "Schluffsteinziegeltreppe",
+    "block.magicmod.silt_stone_wall": "Schluffsteinmauer",
+    "block.magicmod.silt_stone_brick_wall": "Schluffsteinziegelmauer",
     "itemGroup.magicmod": "Zaubermod"
 }

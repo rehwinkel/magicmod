@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "magicmod:block/silt_stone",
+        "top": "magicmod:block/silt_stone",
+        "side": "magicmod:block/silt_stone"
+    }
+}
