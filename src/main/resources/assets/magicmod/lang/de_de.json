@@ -1,0 +1,7 @@
+{
+    "item.magicmod.basic_wand": "Einfacher Zauberstab",
+    "item.magicmod.advanced_wand": "Fortgeschrittener Zauberstab",
+    "item.magicmod.master_wand": "Meisterzauberstab",
+    "block.magicmod.wand_table": "Zauberstabtisch",
+    "itemGroup.magicmod": "Zaubermod"
+}

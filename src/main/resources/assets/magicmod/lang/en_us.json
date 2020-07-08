@@ -2,5 +2,6 @@
     "item.magicmod.basic_wand": "Basic Wand",
     "item.magicmod.advanced_wand": "Advanced Wand",
     "item.magicmod.master_wand": "Master Wand",
+    "block.magicmod.wand_table": "Wand Table",
     "itemGroup.magicmod": "Magic Mod"
 }
