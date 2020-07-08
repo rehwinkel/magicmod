@@ -28,7 +28,7 @@ public class WorldGen {
 
     public static void addSiltStone(Biome biome) {
         biome.addFeature(Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(siltStoneConfig)
-                .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(6, 0, 0, 80))));
+                .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(3, 0, 0, 80))));
     }
 
 }
