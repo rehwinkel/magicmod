@@ -15,30 +15,33 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 public class BlockRegistry {
 
     public static Block WAND_TABLE;
-    public static Block AMETHYST_ORE_BLOCK;
+    public static Block AMETHYST_ORE;
+    public static Block AMETHYST_SILT_ORE;
     public static Block SILT_STONE;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         WAND_TABLE = new WandTableBlock(Block.Properties.create(Material.ROCK, MaterialColor.BLUE))
                 .setRegistryName("wand_table");
-        AMETHYST_ORE_BLOCK = new Block(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE))
-                .setRegistryName("amethyst_ore");
-        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE_BLOCK);
+        AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK)).setRegistryName("amethyst_ore");
+        AMETHYST_SILT_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
+                .setRegistryName("amethyst_silt_ore");
         SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
                 .setRegistryName("silt_stone");
-        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE_BLOCK, SILT_STONE);
+        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE, AMETHYST_SILT_ORE, SILT_STONE);
     }
 
     @SubscribeEvent
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
         BlockItem WAND_TABLE_ITEM = new BlockItem(WAND_TABLE, new Item.Properties().group(MagicMod.tab));
         WAND_TABLE_ITEM.setRegistryName(WAND_TABLE.getRegistryName());
-        BlockItem AMETHYST_ORE_ITEM = new BlockItem(AMETHYST_ORE_BLOCK, new Item.Properties().group(MagicMod.tab));
-        AMETHYST_ORE_ITEM.setRegistryName(AMETHYST_ORE_BLOCK.getRegistryName());
+        BlockItem AMETHYST_ORE_ITEM = new BlockItem(AMETHYST_ORE, new Item.Properties().group(MagicMod.tab));
+        AMETHYST_ORE_ITEM.setRegistryName(AMETHYST_ORE.getRegistryName());
+        BlockItem AMETHYST_SILT_ORE_ITEM = new BlockItem(AMETHYST_SILT_ORE, new Item.Properties().group(MagicMod.tab));
+        AMETHYST_SILT_ORE_ITEM.setRegistryName(AMETHYST_SILT_ORE.getRegistryName());
         BlockItem SILT_STONE_ITEM = new BlockItem(SILT_STONE, new Item.Properties().group(MagicMod.tab));
         SILT_STONE_ITEM.setRegistryName(SILT_STONE.getRegistryName());
-        event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM);
+        event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_SILT_ORE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM);
     }
 
 }

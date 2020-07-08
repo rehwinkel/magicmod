@@ -4,6 +4,7 @@
     "item.magicmod.master_wand": "Master Wand",
     "block.magicmod.wand_table": "Wand Table",
     "block.magicmod.amethyst_ore": "Amethyst Ore",
+    "block.magicmod.amethyst_silt_ore": "Amethyst Ore",
     "block.magicmod.silt_stone": "Siltstone",
     "itemGroup.magicmod": "Magic Mod"
 }

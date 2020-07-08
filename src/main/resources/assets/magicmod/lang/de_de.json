@@ -4,6 +4,7 @@
     "item.magicmod.master_wand": "Meisterzauberstab",
     "block.magicmod.wand_table": "Zauberstabtisch",
     "block.magicmod.amethyst_ore": "Amethysterz",
+    "block.magicmod.amethyst_silt_ore": "Amethysterz",
     "block.magicmod.silt_stone": "Schluffstein",
     "itemGroup.magicmod": "Zaubermod"
 }
