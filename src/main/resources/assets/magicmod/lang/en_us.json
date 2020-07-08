@@ -3,6 +3,10 @@
     "item.magicmod.advanced_wand": "Advanced Wand",
     "item.magicmod.master_wand": "Master Wand",
     "block.magicmod.wand_table": "Wand Table",
+<<<<<<< HEAD
     "block.magicmod.amethyst_ore": "Amethyst Ore",
+=======
+    "block.magicmod.silt_stone": "Siltstone",
+>>>>>>> c890776d9c31d6798dff84d566dea8bc05769957
     "itemGroup.magicmod": "Magic Mod"
 }

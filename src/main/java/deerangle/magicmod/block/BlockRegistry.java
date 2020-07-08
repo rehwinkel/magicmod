@@ -16,6 +16,7 @@ public class BlockRegistry {
 
     public static Block WAND_TABLE;
     public static Block AMETHYST_ORE_BLOCK;
+    public static Block SILT_STONE;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -24,6 +25,9 @@ public class BlockRegistry {
         AMETHYST_ORE_BLOCK = new Block(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE))
                 .setRegistryName("amethyst_ore");
         event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE_BLOCK);
+        SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
+                .setRegistryName("silt_stone");
+        event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE_BLOCK, SILT_STONE);
     }
 
     @SubscribeEvent
@@ -32,7 +36,9 @@ public class BlockRegistry {
         WAND_TABLE_ITEM.setRegistryName(WAND_TABLE.getRegistryName());
         BlockItem AMETHYST_ORE_ITEM = new BlockItem(AMETHYST_ORE_BLOCK, new Item.Properties().group(MagicMod.tab));
         AMETHYST_ORE_ITEM.setRegistryName(AMETHYST_ORE_BLOCK.getRegistryName());
-        event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_ORE_ITEM);
+        BlockItem SILT_STONE_ITEM = new BlockItem(SILT_STONE, new Item.Properties().group(MagicMod.tab));
+        SILT_STONE_ITEM.setRegistryName(SILT_STONE.getRegistryName());
+        event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM);
     }
 
 }
