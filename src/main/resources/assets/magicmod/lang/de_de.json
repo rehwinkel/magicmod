@@ -6,5 +6,6 @@
     "block.magicmod.amethyst_ore": "Amethysterz",
     "block.magicmod.amethyst_silt_ore": "Amethysterz",
     "block.magicmod.silt_stone": "Schluffstein",
+    "block.magicmod.silt_stone_bricks": "Schluffsteinziegel",
     "itemGroup.magicmod": "Zaubermod"
 }

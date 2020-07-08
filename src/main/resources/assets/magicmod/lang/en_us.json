@@ -6,5 +6,6 @@
     "block.magicmod.amethyst_ore": "Amethyst Ore",
     "block.magicmod.amethyst_silt_ore": "Amethyst Ore",
     "block.magicmod.silt_stone": "Siltstone",
+    "block.magicmod.silt_stone_bricks": "Siltstone Bricks",
     "itemGroup.magicmod": "Magic Mod"
 }
