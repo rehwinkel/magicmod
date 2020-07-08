@@ -1,5 +1,6 @@
 {
     "item.magicmod.basic_wand": "Basic Wand",
     "item.magicmod.advanced_wand": "Advanced Wand",
-    "item.magicmod.master_wand": "Master Wand"
+    "item.magicmod.master_wand": "Master Wand",
+    "itemGroup.magicmod": "Magic Mod"
 }

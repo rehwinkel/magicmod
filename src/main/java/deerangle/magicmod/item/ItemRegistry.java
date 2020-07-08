@@ -1,5 +1,6 @@
 package deerangle.magicmod.item;
 
+import deerangle.magicmod.main.MagicMod;
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,9 +17,9 @@ public class ItemRegistry {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        BASIC_WAND = new Item(new Item.Properties().maxStackSize(1)).setRegistryName("basic_wand");
-        ADVANCED_WAND = new Item(new Item.Properties().maxStackSize(1).rarity(Rarity.RARE)).setRegistryName("advanced_wand");
-        MASTER_WAND = new Item(new Item.Properties().maxStackSize(1).rarity(Rarity.EPIC)).setRegistryName("master_wand");
+        BASIC_WAND = new Item(new Item.Properties().maxStackSize(1).group(MagicMod.tab)).setRegistryName("basic_wand");
+        ADVANCED_WAND = new Item(new Item.Properties().maxStackSize(1).group(MagicMod.tab).rarity(Rarity.RARE)).setRegistryName("advanced_wand");
+        MASTER_WAND = new Item(new Item.Properties().maxStackSize(1).group(MagicMod.tab).rarity(Rarity.EPIC)).setRegistryName("master_wand");
         event.getRegistry().registerAll(BASIC_WAND, ADVANCED_WAND, MASTER_WAND);
     }
 
