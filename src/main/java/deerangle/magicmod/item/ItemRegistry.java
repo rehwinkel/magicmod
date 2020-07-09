@@ -15,6 +15,7 @@ public class ItemRegistry {
     public static Item ADVANCED_WAND;
     public static Item MASTER_WAND;
     public static Item AMETHYST;
+    public static Item MAGIC_STICK;
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -22,7 +23,8 @@ public class ItemRegistry {
         ADVANCED_WAND = new Item(new Item.Properties().maxStackSize(1).group(MagicMod.tab).rarity(Rarity.RARE)).setRegistryName("advanced_wand");
         MASTER_WAND = new Item(new Item.Properties().maxStackSize(1).group(MagicMod.tab).rarity(Rarity.EPIC)).setRegistryName("master_wand");
         AMETHYST = new Item(new Item.Properties().maxStackSize(64).group(MagicMod.tab)).setRegistryName("amethyst");
-        event.getRegistry().registerAll(BASIC_WAND, ADVANCED_WAND, MASTER_WAND, AMETHYST);
+        MAGIC_STICK = new Item(new Item.Properties().maxStackSize(64).group(MagicMod.tab)).setRegistryName("magic_stick");
+        event.getRegistry().registerAll(BASIC_WAND, ADVANCED_WAND, MASTER_WAND, AMETHYST, MAGIC_STICK);
     }
 
 }
