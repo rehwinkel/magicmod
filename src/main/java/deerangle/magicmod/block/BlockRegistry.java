@@ -39,7 +39,7 @@ public class BlockRegistry {
                         .setRegistryName("wand_table");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
-        AMETHYST_BLOCK = new Block(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE_TERRACOTTA)
+        AMETHYST_BLOCK = new Block(Block.Properties.create(Material.IRON, MaterialColor.PURPLE_TERRACOTTA)
                 .hardnessAndResistance(5.0F, 6.0F)).setRegistryName("amethyst_block");
         AMETHYST_SILT_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_silt_ore");
