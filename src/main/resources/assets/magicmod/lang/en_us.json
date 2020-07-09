@@ -15,5 +15,7 @@
     "block.magicmod.silt_stone_brick_stairs": "Siltstone Brick Stairs",
     "block.magicmod.silt_stone_wall": "Siltstone Wall",
     "block.magicmod.silt_stone_brick_wall": "Siltstone Brick Wall",
+    "block.magicmod.stone_tablet": "Stone Tablet",
+    "block.magicmod.enchanted_stone_tablet": "Engraved Stone Tablet",
     "itemGroup.magicmod": "Magic Mod"
 }

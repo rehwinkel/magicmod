@@ -2,6 +2,7 @@ package deerangle.magicmod.block;
 
 import deerangle.magicmod.main.MagicMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.WallBlock;
@@ -29,19 +30,22 @@ public class BlockRegistry {
     public static Block SILT_STONE_BRICK_STAIRS;
     public static Block SILT_STONE_WALL;
     public static Block SILT_STONE_BRICK_WALL;
+    public static Block STONE_TABLET;
+    public static Block ENCHANTED_STONE_TABLET;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        WAND_TABLE = new WandTableBlock(Block.Properties.create(Material.ROCK, MaterialColor.BLUE))
-                .setRegistryName("wand_table");
+        WAND_TABLE = new WandTableBlock(
+                Block.Properties.create(Material.ROCK, MaterialColor.BLUE).hardnessAndResistance(1.5F, 6.0F))
+                        .setRegistryName("wand_table");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
                 .setRegistryName("amethyst_ore");
         AMETHYST_BLOCK = new Block(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE_TERRACOTTA))
                 .setRegistryName("amethyst_block");
         AMETHYST_SILT_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
                 .setRegistryName("amethyst_silt_ore");
-        SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA))
-                .setRegistryName("silt_stone");
+        SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
+                .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("silt_stone");
         SILT_STONE_BRICKS = new Block(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_bricks");
         SILT_STONE_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_slab");
         SILT_STONE_BRICK_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE))
@@ -53,9 +57,12 @@ public class BlockRegistry {
         SILT_STONE_WALL = new WallBlock(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_wall");
         SILT_STONE_BRICK_WALL = new WallBlock(Block.Properties.from(SILT_STONE))
                 .setRegistryName("silt_stone_brick_wall");
+        STONE_TABLET = new StoneTabletBlock(Block.Properties.from(SILT_STONE), false).setRegistryName("stone_tablet");
+        ENCHANTED_STONE_TABLET = new StoneTabletBlock(Block.Properties.from(SILT_STONE), true)
+                .setRegistryName("enchanted_stone_tablet");
         event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE, AMETHYST_SILT_ORE, SILT_STONE, SILT_STONE_BRICKS,
                 SILT_STONE_SLAB, SILT_STONE_STAIRS, SILT_STONE_WALL, SILT_STONE_BRICK_SLAB, SILT_STONE_BRICK_STAIRS,
-                SILT_STONE_BRICK_WALL, AMETHYST_BLOCK);
+                SILT_STONE_BRICK_WALL, AMETHYST_BLOCK, STONE_TABLET, ENCHANTED_STONE_TABLET);
     }
 
     @SubscribeEvent
@@ -87,9 +94,15 @@ public class BlockRegistry {
         BlockItem SILT_STONE_BRICK_WALL_ITEM = new BlockItem(SILT_STONE_BRICK_WALL,
                 new Item.Properties().group(MagicMod.tab));
         SILT_STONE_BRICK_WALL_ITEM.setRegistryName(SILT_STONE_BRICK_WALL.getRegistryName());
+        BlockItem STONE_TABLET_ITEM = new BlockItem(STONE_TABLET, new Item.Properties().group(MagicMod.tab));
+        STONE_TABLET_ITEM.setRegistryName(STONE_TABLET.getRegistryName());
+        BlockItem ENCHANTED_STONE_TABLET_ITEM = new BlockItem(ENCHANTED_STONE_TABLET,
+                new Item.Properties().group(MagicMod.tab));
+        ENCHANTED_STONE_TABLET_ITEM.setRegistryName(ENCHANTED_STONE_TABLET.getRegistryName());
         event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_SILT_ORE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM,
                 SILT_STONE_BRICKS_ITEM, SILT_STONE_SLAB_ITEM, SILT_STONE_BRICK_SLAB_ITEM, SILT_STONE_STAIRS_ITEM,
-                SILT_STONE_BRICK_STAIRS_ITEM, SILT_STONE_WALL_ITEM, SILT_STONE_BRICK_WALL_ITEM, AMETHYST_BLOCK_ITEM);
+                SILT_STONE_BRICK_STAIRS_ITEM, SILT_STONE_WALL_ITEM, SILT_STONE_BRICK_WALL_ITEM, AMETHYST_BLOCK_ITEM,
+                STONE_TABLET_ITEM, ENCHANTED_STONE_TABLET_ITEM);
     }
 
 }
