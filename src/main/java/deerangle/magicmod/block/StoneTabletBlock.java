@@ -7,11 +7,11 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-public class WandTableBlock extends Block {
+public class StoneTabletBlock extends Block {
 
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0);
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(1.0, 0.0, 1.0, 15.0, 4.0, 15.0);
 
-    public WandTableBlock(Properties properties) {
+    public StoneTabletBlock(Properties properties) {
         super(properties);
     }
 
