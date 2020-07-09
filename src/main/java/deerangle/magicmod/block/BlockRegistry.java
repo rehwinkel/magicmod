@@ -2,7 +2,6 @@ package deerangle.magicmod.block;
 
 import deerangle.magicmod.main.MagicMod;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.WallBlock;
@@ -35,14 +34,15 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        WAND_TABLE = new WandTableBlock(Block.Properties.create(Material.ROCK, MaterialColor.BLUE)
-                .hardnessAndResistance(1.5F, 6.0F).hardnessAndResistance(5.0F, 1200.0F)).setRegistryName("wand_table");
+        WAND_TABLE = new WandTableBlock(
+                Block.Properties.create(Material.ROCK, MaterialColor.BLUE).hardnessAndResistance(5.0F, 1200.0F))
+                        .setRegistryName("wand_table");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(3.0F, 3.0F)).setRegistryName("amethyst_ore");
+                .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
         AMETHYST_BLOCK = new Block(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE_TERRACOTTA)
                 .hardnessAndResistance(5.0F, 6.0F)).setRegistryName("amethyst_block");
         AMETHYST_SILT_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(3.0F, 3.0F)).setRegistryName("amethyst_silt_ore");
+                .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_silt_ore");
         SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("silt_stone");
         SILT_STONE_BRICKS = new Block(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_bricks");
