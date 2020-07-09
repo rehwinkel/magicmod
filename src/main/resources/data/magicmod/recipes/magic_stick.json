@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "D": {
+      "item": "magicmod:amethyst"
+    }
+  },
+  "result": {
+    "item": "magicmod:magic_stick"
+  }
+}
