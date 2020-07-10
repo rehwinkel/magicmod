@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+      "item": "magicmod:silt_stone"
+    },
+    "result": "magicmod:silt_stone_wall",
+    "count": 1
+  }
