@@ -38,7 +38,7 @@ public class BlockRegistry {
         WAND_TABLE = new WandTableBlock(
                 Block.Properties.create(Material.ROCK, MaterialColor.BLUE).hardnessAndResistance(5.0F, 1200.0F))
                         .setRegistryName("wand_table");
-        PEDESTAL = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
+        PEDESTAL = new PedestalBlock(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("pedestal");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
