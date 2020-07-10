@@ -2,7 +2,9 @@ package deerangle.magicmod.container;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.screen.inventory.BeaconScreen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.gui.screen.inventory.StonecutterScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -14,7 +16,11 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
 
     public WandTableGui(WandTableContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
-        ySize = 204;
+    }
+
+    protected void func_231160_c_() {
+        super.func_231160_c_();
+        // this.func_230480_a_(new BeaconScreen.CancelButton(this.guiLeft + 190, this.guiTop + 107));
     }
 
     @Override
@@ -33,7 +39,6 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
         this.func_238474_b_(matrixStack, i, j, 0, 0, this.xSize, this.ySize);
     }
 
-    // TODO: fix name locations
     @Override
     public void func_230451_b_(MatrixStack matrixStack, int mouseX, int mouseY) {
         this.field_230712_o_.func_238422_b_(matrixStack, this.field_230704_d_, (float) this.field_238742_p_,
