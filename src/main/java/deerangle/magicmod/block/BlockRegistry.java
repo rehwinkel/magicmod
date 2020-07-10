@@ -31,12 +31,15 @@ public class BlockRegistry {
     public static Block SILT_STONE_BRICK_WALL;
     public static Block STONE_TABLET;
     public static Block ENCHANTED_STONE_TABLET;
+    public static Block PEDESTAL;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         WAND_TABLE = new WandTableBlock(
                 Block.Properties.create(Material.ROCK, MaterialColor.BLUE).hardnessAndResistance(5.0F, 1200.0F))
                         .setRegistryName("wand_table");
+        PEDESTAL = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
+                .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("pedestal");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
         AMETHYST_BLOCK = new Block(Block.Properties.create(Material.IRON, MaterialColor.PURPLE_TERRACOTTA)
@@ -70,6 +73,8 @@ public class BlockRegistry {
         WAND_TABLE_ITEM.setRegistryName(WAND_TABLE.getRegistryName());
         BlockItem AMETHYST_ORE_ITEM = new BlockItem(AMETHYST_ORE, new Item.Properties().group(MagicMod.tab));
         AMETHYST_ORE_ITEM.setRegistryName(AMETHYST_ORE.getRegistryName());
+        BlockItem PEDESTAL_ITEM = new BlockItem(PEDESTAL, new Item.Properties().group(MagicMod.tab));
+        PEDESTAL_ITEM.setRegistryName(PEDESTAL.getRegistryName());
         BlockItem AMETHYST_BLOCK_ITEM = new BlockItem(AMETHYST_BLOCK, new Item.Properties().group(MagicMod.tab));
         AMETHYST_BLOCK_ITEM.setRegistryName(AMETHYST_BLOCK.getRegistryName());
         BlockItem AMETHYST_SILT_ORE_ITEM = new BlockItem(AMETHYST_SILT_ORE, new Item.Properties().group(MagicMod.tab));
