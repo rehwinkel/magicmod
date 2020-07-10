@@ -1,9 +1,10 @@
 package deerangle.magicmod.main;
 
 import deerangle.magicmod.item.ItemRegistry;
+import deerangle.magicmod.network.PacketHandler;
 import deerangle.magicmod.proxy.ClientProxy;
-import deerangle.magicmod.proxy.ServerProxy;
 import deerangle.magicmod.proxy.Proxy;
+import deerangle.magicmod.proxy.ServerProxy;
 import deerangle.magicmod.world.WorldGen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,12 +27,13 @@ public class MagicMod {
 
     };
 
-    public static Proxy proxy = (Proxy) DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
+    public static Proxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
     public MagicMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         proxy.init();
+        PacketHandler.registerPackets();
     }
 
     private void setup(FMLCommonSetupEvent event) {

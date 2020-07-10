@@ -19,7 +19,6 @@ public class WandTableTileEntityRenderer extends TileEntityRenderer<WandTableTil
         super(rendererDispatcherIn);
     }
 
-    // TODO: add sync packets
     @Override
     public void render(WandTableTileEntity tileEntity, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
         matrixStackIn.push();
