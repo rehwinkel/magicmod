@@ -2,12 +2,16 @@ package deerangle.magicmod.container;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.screen.MainMenuScreen;
 import net.minecraft.client.gui.screen.inventory.BeaconScreen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.screen.inventory.StonecutterScreen;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public class WandTableGui extends ContainerScreen<WandTableContainer> {
 
@@ -20,7 +24,21 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
 
     protected void func_231160_c_() {
         super.func_231160_c_();
-        // this.func_230480_a_(new BeaconScreen.CancelButton(this.guiLeft + 190, this.guiTop + 107));
+        this.func_230480_a_(new Button(guiLeft + 56, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+            // nothing yet
+        }));
+        this.func_230480_a_(new Button(guiLeft + 76, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+            // nothing yet
+        }));
+        this.func_230480_a_(new Button(guiLeft + 96, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+            // nothing yet
+        }));
+        this.func_230480_a_(new Button(guiLeft + 116, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+            // nothing yet
+        }));
+        this.func_230480_a_(new Button(guiLeft + 136, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+            // nothing yet
+        }));
     }
 
     @Override
