@@ -12,10 +12,10 @@ public class PacketHandler {
                     PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
     public static void registerPackets() {
-        INSTANCE.registerMessage(0, UpdateWandTablePacket.class, UpdateWandTablePacket::serialize,
-                UpdateWandTablePacket::deserialize, UpdateWandTablePacket::handle);
-        INSTANCE.registerMessage(1, RqUpdateWandTablePacket.class, RqUpdateWandTablePacket::serialize,
-                RqUpdateWandTablePacket::deserialize, RqUpdateWandTablePacket::handle);
+        INSTANCE.registerMessage(0, UpdateItemStandPacket.class, UpdateItemStandPacket::serialize,
+                UpdateItemStandPacket::deserialize, UpdateItemStandPacket::handle);
+        INSTANCE.registerMessage(1, RqUpdateItemStandPacket.class, RqUpdateItemStandPacket::serialize,
+                RqUpdateItemStandPacket::deserialize, RqUpdateItemStandPacket::handle);
     }
 
 }
