@@ -1,6 +1,8 @@
 package deerangle.magicmod.block.entity;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -46,6 +48,18 @@ public class PedestalTileEntity extends ItemStandTileEntity {
     public void setStackToDisplay(ItemStack stack) {
         ItemStackHandler itemHandler = this.inventory.orElse(null);
         itemHandler.setStackInSlot(0, stack);
+    }
+
+    @Override
+    public CompoundNBT write(CompoundNBT compound) {
+        compound.put("inventory", inventory.orElse(null).serializeNBT());
+        return super.write(compound);
+    }
+
+    @Override
+    public void func_230337_a_(BlockState state, CompoundNBT compound) {
+        inventory.orElse(null).deserializeNBT(compound.getCompound("inventory"));
+        super.func_230337_a_(state, compound);
     }
 
 }
