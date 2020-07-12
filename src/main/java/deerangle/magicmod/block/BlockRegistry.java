@@ -32,6 +32,7 @@ public class BlockRegistry {
     public static Block STONE_TABLET;
     public static Block ENCHANTED_STONE_TABLET;
     public static Block PEDESTAL;
+    public static Block ALTAR;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -40,6 +41,8 @@ public class BlockRegistry {
                         .setRegistryName("wand_table");
         PEDESTAL = new PedestalBlock(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("pedestal");
+        ALTAR = new PedestalBlock(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
+                .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("altar");
         AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
                 .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
         AMETHYST_BLOCK = new Block(Block.Properties.create(Material.IRON, MaterialColor.PURPLE_TERRACOTTA)
@@ -64,7 +67,7 @@ public class BlockRegistry {
                 .setRegistryName("enchanted_stone_tablet");
         event.getRegistry().registerAll(WAND_TABLE, AMETHYST_ORE, AMETHYST_SILT_ORE, SILT_STONE, SILT_STONE_BRICKS,
                 SILT_STONE_SLAB, SILT_STONE_STAIRS, SILT_STONE_WALL, SILT_STONE_BRICK_SLAB, SILT_STONE_BRICK_STAIRS,
-                SILT_STONE_BRICK_WALL, AMETHYST_BLOCK, STONE_TABLET, ENCHANTED_STONE_TABLET, PEDESTAL);
+                SILT_STONE_BRICK_WALL, AMETHYST_BLOCK, STONE_TABLET, ENCHANTED_STONE_TABLET, PEDESTAL, ALTAR);
     }
 
     @SubscribeEvent
@@ -75,6 +78,8 @@ public class BlockRegistry {
         AMETHYST_ORE_ITEM.setRegistryName(AMETHYST_ORE.getRegistryName());
         BlockItem PEDESTAL_ITEM = new BlockItem(PEDESTAL, new Item.Properties().group(MagicMod.tab));
         PEDESTAL_ITEM.setRegistryName(PEDESTAL.getRegistryName());
+        BlockItem ALTAR_ITEM = new BlockItem(ALTAR, new Item.Properties().group(MagicMod.tab));
+        ALTAR_ITEM.setRegistryName(ALTAR.getRegistryName());
         BlockItem AMETHYST_BLOCK_ITEM = new BlockItem(AMETHYST_BLOCK, new Item.Properties().group(MagicMod.tab));
         AMETHYST_BLOCK_ITEM.setRegistryName(AMETHYST_BLOCK.getRegistryName());
         BlockItem AMETHYST_SILT_ORE_ITEM = new BlockItem(AMETHYST_SILT_ORE, new Item.Properties().group(MagicMod.tab));
@@ -106,7 +111,7 @@ public class BlockRegistry {
         event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_SILT_ORE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM,
                 SILT_STONE_BRICKS_ITEM, SILT_STONE_SLAB_ITEM, SILT_STONE_BRICK_SLAB_ITEM, SILT_STONE_STAIRS_ITEM,
                 SILT_STONE_BRICK_STAIRS_ITEM, SILT_STONE_WALL_ITEM, SILT_STONE_BRICK_WALL_ITEM, AMETHYST_BLOCK_ITEM,
-                STONE_TABLET_ITEM, ENCHANTED_STONE_TABLET_ITEM, PEDESTAL_ITEM);
+                STONE_TABLET_ITEM, ENCHANTED_STONE_TABLET_ITEM, PEDESTAL_ITEM, ALTAR_ITEM);
     }
 
 }
