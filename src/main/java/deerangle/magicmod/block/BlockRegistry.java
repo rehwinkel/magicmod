@@ -36,21 +36,20 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        Block.Properties baseSiltProperties = Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA);
         WAND_TABLE = new WandTableBlock(
                 Block.Properties.create(Material.ROCK, MaterialColor.BLUE).hardnessAndResistance(5.0F, 1200.0F))
-                        .setRegistryName("wand_table");
-        PEDESTAL = new PedestalBlock(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("pedestal");
-        ALTAR = new PedestalBlock(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("altar");
-        AMETHYST_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_ore");
+                .setRegistryName("wand_table");
+        AMETHYST_ORE = new Block(
+                Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F).harvestLevel(2))
+                .setRegistryName("amethyst_ore");
         AMETHYST_BLOCK = new Block(Block.Properties.create(Material.IRON, MaterialColor.PURPLE_TERRACOTTA)
                 .hardnessAndResistance(5.0F, 6.0F)).setRegistryName("amethyst_block");
-        AMETHYST_SILT_ORE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(3.0F, 3.0F).harvestLevel(2)).setRegistryName("amethyst_silt_ore");
-        SILT_STONE = new Block(Block.Properties.create(Material.ROCK, MaterialColor.WHITE_TERRACOTTA)
-                .hardnessAndResistance(1.5F, 6.0F)).setRegistryName("silt_stone");
+        AMETHYST_SILT_ORE = new Block(baseSiltProperties.hardnessAndResistance(3.0F, 3.0F).harvestLevel(2))
+                .setRegistryName("amethyst_silt_ore");
+        SILT_STONE = new Block(baseSiltProperties.hardnessAndResistance(1.5F, 6.0F)).setRegistryName("silt_stone");
+        PEDESTAL = new PedestalBlock(Block.Properties.from(SILT_STONE)).setRegistryName("pedestal");
+        ALTAR = new AltarBlock(Block.Properties.from(SILT_STONE)).setRegistryName("altar");
         SILT_STONE_BRICKS = new Block(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_bricks");
         SILT_STONE_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE)).setRegistryName("silt_stone_slab");
         SILT_STONE_BRICK_SLAB = new SlabBlock(Block.Properties.from(SILT_STONE))

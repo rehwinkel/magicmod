@@ -25,6 +25,8 @@ public class ClientProxy implements Proxy {
                 dispatcher -> new ItemStandTileEntityRenderer(dispatcher, 27.0 / 32.0, 0.7F, true));
         ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.PEDESTAL,
                 dispatcher -> new ItemStandTileEntityRenderer(dispatcher, 31.0 / 32.0, 6F / 16F, false));
+        ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.ALTAR,
+                dispatcher -> new ItemStandTileEntityRenderer(dispatcher, 14.0 / 16.0, 8F / 16F, false));
         ScreenManager.registerFactory(ContainerRegistry.WAND_TABLE, WandTableGui::new);
     }
 
