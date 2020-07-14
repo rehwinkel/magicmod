@@ -4,16 +4,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.StringNBT;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class Spell extends ForgeRegistryEntry<Spell> {
 
-    private final int level;
     private final int cooldown;
 
-    public Spell(int level, int cooldown) {
-        this.level = level;
+    public Spell(int cooldown) {
         this.cooldown = cooldown;
     }
 
@@ -30,15 +30,21 @@ public class Spell extends ForgeRegistryEntry<Spell> {
         return cooldown;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
     public INBT write() {
         return StringNBT.valueOf(this.getRegistryName().toString());
     }
 
     public static Spell read(INBT nbt) {
+        String str = nbt.getString();
+        if (str.isEmpty()) {
+            return null;
+        }
         return GameRegistry.findRegistry(Spell.class).getValue(new ResourceLocation(nbt.getString()));
     }
+
+    public ITextComponent getTextComponent() {
+        return new TranslationTextComponent(
+                "spell." + this.getRegistryName().getNamespace() + "." + this.getRegistryName().getPath());
+    }
+
 }

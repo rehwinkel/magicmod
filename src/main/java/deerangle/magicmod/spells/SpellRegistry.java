@@ -7,12 +7,12 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SpellRegistry {
 
-    public static Spell ELEKTRO;
+    public static Spell ELECTRO;
 
     @SubscribeEvent
     public static void registerSpells(RegistryEvent.Register<Spell> event) {
-        ELEKTRO = new ElektroSpell(1, 20).setRegistryName("electro");
-        event.getRegistry().registerAll(ELEKTRO);
+        ELECTRO = new ElectroSpell(20).setRegistryName("electro");
+        event.getRegistry().registerAll(ELECTRO);
     }
 
 }

@@ -16,6 +16,8 @@ public class PacketHandler {
                 UpdateItemStandPacket::deserialize, UpdateItemStandPacket::handle);
         INSTANCE.registerMessage(1, RqUpdateItemStandPacket.class, RqUpdateItemStandPacket::serialize,
                 RqUpdateItemStandPacket::deserialize, RqUpdateItemStandPacket::handle);
+        INSTANCE.registerMessage(2, ApplySpellMessage.class, ApplySpellMessage::serialize,
+                ApplySpellMessage::deserialize, ApplySpellMessage::handle);
     }
 
 }

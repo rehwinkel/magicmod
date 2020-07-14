@@ -19,6 +19,11 @@ public class PedestalTileEntity extends ItemStandTileEntity {
         protected void onContentsChanged(int slot) {
             PedestalTileEntity.super.updateDisplayNear();
         }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
     });
 
     public PedestalTileEntity(TileEntityType<?> tileEntityTypeIn) {

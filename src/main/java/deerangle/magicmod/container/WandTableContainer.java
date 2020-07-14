@@ -1,5 +1,10 @@
 package deerangle.magicmod.container;
 
+import deerangle.magicmod.block.BlockRegistry;
+import deerangle.magicmod.item.ItemRegistry;
+import deerangle.magicmod.item.WandItem;
+import deerangle.magicmod.spells.Spell;
+import deerangle.magicmod.spells.SpellRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -26,6 +31,25 @@ public class WandTableContainer extends Container {
         for (int i = 0; i < 27; i++) {
             this.addSlot(new Slot(playerInventory, 9 + i, 8 + (i % 9) * 18, 84 + 18 * (i / 9)));
         }
+    }
+
+    public boolean applySpell(int buttonID) {
+        ItemStack wand = this.getSlot(0).getStack();
+        ItemStack tablet = this.getSlot(1).getStack();
+        if (!tablet.isEmpty() && tablet.getItem() == new ItemStack(BlockRegistry.ENCHANTED_STONE_TABLET).getItem()) {
+            Spell spell = SpellRegistry.ELECTRO; // TODO: get from tablet
+            if (wand.getItem() == ItemRegistry.BASIC_WAND && buttonID == 2) {
+                ((WandItem) wand.getItem()).putSpell(wand, 0, 1, spell);
+                return true;
+            } else if (wand.getItem() == ItemRegistry.ADVANCED_WAND && buttonID >= 1 && buttonID <= 3) {
+                ((WandItem) wand.getItem()).putSpell(wand, buttonID - 1, 3, spell);
+                return true;
+            } else if (wand.getItem() == ItemRegistry.MASTER_WAND) {
+                ((WandItem) wand.getItem()).putSpell(wand, buttonID, 5, spell);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

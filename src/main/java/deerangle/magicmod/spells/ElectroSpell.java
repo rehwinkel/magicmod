@@ -5,15 +5,14 @@ import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class ElektroSpell extends Spell {
+public class ElectroSpell extends Spell {
 
-    public ElektroSpell(int level, int cooldown) {
-        super(level, cooldown);
+    public ElectroSpell(int cooldown) {
+        super(cooldown);
     }
 
     @Override
     public boolean cast(PlayerEntity player) {
-        System.out.println("NICE");
         World world = player.getEntityWorld();
         LightningBoltEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
         lightning.func_233576_c_(player.getPositionVec());

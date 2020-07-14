@@ -31,6 +31,11 @@ public class WandTableTileEntity extends ItemStandTileEntity implements INamedCo
         protected void onContentsChanged(int slot) {
             WandTableTileEntity.super.updateDisplayNear();
         }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
     });
 
     public WandTableTileEntity(TileEntityType<?> tileEntityTypeIn) {

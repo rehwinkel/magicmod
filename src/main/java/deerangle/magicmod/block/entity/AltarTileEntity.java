@@ -19,6 +19,11 @@ public class AltarTileEntity extends ItemStandTileEntity {
         protected void onContentsChanged(int slot) {
             AltarTileEntity.super.updateDisplayNear();
         }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
     });
 
     public AltarTileEntity(TileEntityType<?> tileEntityTypeIn) {
