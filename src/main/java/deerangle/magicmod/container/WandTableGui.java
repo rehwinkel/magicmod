@@ -2,7 +2,6 @@ package deerangle.magicmod.container;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import deerangle.magicmod.block.BlockRegistry;
 import deerangle.magicmod.item.ItemRegistry;
 import deerangle.magicmod.item.WandItem;
 import deerangle.magicmod.network.ApplySpellMessage;
@@ -15,8 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.fml.network.PacketDistributor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WandTableGui extends ContainerScreen<WandTableContainer> {
@@ -64,8 +65,8 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
     public void func_231023_e_() {
         super.func_231023_e_();
         ItemStack wand = this.container.getSlot(0).getStack();
-        ItemStack tablet = this.container.getSlot(1).getStack();
-        if (!tablet.isEmpty() && tablet.getItem() == new ItemStack(BlockRegistry.ENCHANTED_STONE_TABLET).getItem()) {
+        Spell spell = this.container.getTabletSpell();
+        if (spell != null) {
             if (wand.getItem() == ItemRegistry.BASIC_WAND) {
                 this.button0.field_230693_o_ = false;
                 this.button1.field_230693_o_ = false;
@@ -108,19 +109,68 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
     }
 
     @Override
+    // drawGui
     public void func_230430_a_(MatrixStack matrixStack, int mouseX, int mouseY, float p_230430_4_) {
         this.func_230446_a_(matrixStack);
         super.func_230430_a_(matrixStack, mouseX, mouseY, p_230430_4_);
         this.func_230459_a_(matrixStack, mouseX, mouseY);
+
+        ItemStack wand = this.container.getSlot(0).getStack();
+        if (!wand.isEmpty() && wand.getItem() instanceof WandItem) {
+            List<Spell> spells = ((WandItem) wand.getItem()).readSpells(wand);
+
+            int startX = 0;
+            if (wand.getItem() == ItemRegistry.BASIC_WAND) {
+                startX = 40;
+            } else if (wand.getItem() == ItemRegistry.ADVANCED_WAND) {
+                startX = 20;
+            }
+            for (Spell spell : spells) {
+                int leftX = guiLeft + 56 + startX;
+                if (mouseX >= leftX && mouseX <= leftX + 19 && mouseY >= guiTop + 33 && mouseY <= guiTop + 52) {
+                    List<ITextComponent> tooltip = new ArrayList<>();
+                    tooltip.add(spell == null ? new TranslationTextComponent("info.magicmod.no_spell") : spell
+                            .getTextComponent());
+                    this.func_238654_b_(matrixStack, tooltip, mouseX, mouseY, this.field_230712_o_);
+                }
+                startX += 20;
+            }
+        }
     }
 
     @Override
+    // drawGuiBackground
     public void func_230450_a_(MatrixStack matrixStack, float p_230450_2_, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.field_230706_i_.getTextureManager().bindTexture(WAND_TABLE_TEXTURE);
         int i = this.guiLeft;
         int j = (this.field_230709_l_ - this.ySize) / 2;
         this.func_238474_b_(matrixStack, i, j, 0, 0, this.xSize, this.ySize);
+    }
+
+    public void drawSpellIcon(MatrixStack matrixStack, int x, int y, Spell spell) {
+        this.field_230706_i_.getTextureManager().bindTexture(SPELL_ICONS_TEXTURE);
+        // drawRectangle
+        func_238464_a_(matrixStack, x, y, 3, (float) spell.getXOffset(), (float) spell.getYOffset(), 16, 16, 16, 16);
+    }
+
+    @Override
+    // drawGuiForeground
+    public void func_230451_b_(MatrixStack matrixStack, int mouseX, int mouseY) {
+        // fontRenderer.drawTextNoShadow
+        this.field_230712_o_.func_238422_b_(matrixStack, this.field_230704_d_, (float) this.field_238742_p_,
+                (float) this.field_238743_q_, 4210752);
+        this.field_230712_o_
+                .func_238422_b_(matrixStack, this.playerInventory.getDisplayName(), (float) this.field_238744_r_,
+                        (float) this.field_238745_s_, 4210752);
+
+        Spell spelle = this.container.getTabletSpell();
+        if (spelle != null) {
+            ITextComponent text = spelle.getTextComponent();
+            this.field_230712_o_
+                    .func_238422_b_(matrixStack, text, 106F - this.field_230712_o_.func_238414_a_(text) / 2F, 20F,
+                            4210752);
+        }
 
         ItemStack wand = this.container.getSlot(0).getStack();
         if (!wand.isEmpty() && wand.getItem() instanceof WandItem) {
@@ -134,25 +184,11 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
             }
             for (Spell spell : spells) {
                 if (spell != null) {
-                    drawSpellIcon(matrixStack, guiLeft + 58 + startX, guiTop + 35, spell);
+                    drawSpellIcon(matrixStack, 58 + startX, 35, spell);
                 }
                 startX += 20;
             }
         }
-    }
-
-    public void drawSpellIcon(MatrixStack matrixStack, int x, int y, Spell spell) {
-        this.field_230706_i_.getTextureManager().bindTexture(SPELL_ICONS_TEXTURE);
-        func_238464_a_(matrixStack, x, y, 3, (float) spell.getXOffset(), (float) spell.getYOffset(), 16, 16, 16, 16);
-    }
-
-    @Override
-    public void func_230451_b_(MatrixStack matrixStack, int mouseX, int mouseY) {
-        this.field_230712_o_.func_238422_b_(matrixStack, this.field_230704_d_, (float) this.field_238742_p_,
-                (float) this.field_238743_q_, 4210752);
-        this.field_230712_o_
-                .func_238422_b_(matrixStack, this.playerInventory.getDisplayName(), (float) this.field_238744_r_,
-                        (float) this.field_238745_s_, 4210752);
     }
 
 }

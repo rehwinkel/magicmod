@@ -1,5 +1,6 @@
 package deerangle.magicmod.block;
 
+import deerangle.magicmod.item.StoneTabletItem;
 import deerangle.magicmod.main.MagicMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
@@ -104,8 +105,8 @@ public class BlockRegistry {
         SILT_STONE_BRICK_WALL_ITEM.setRegistryName(SILT_STONE_BRICK_WALL.getRegistryName());
         BlockItem STONE_TABLET_ITEM = new BlockItem(STONE_TABLET, new Item.Properties().group(MagicMod.tab));
         STONE_TABLET_ITEM.setRegistryName(STONE_TABLET.getRegistryName());
-        BlockItem ENCHANTED_STONE_TABLET_ITEM = new BlockItem(ENCHANTED_STONE_TABLET,
-                new Item.Properties().group(MagicMod.tab));
+        BlockItem ENCHANTED_STONE_TABLET_ITEM = new StoneTabletItem(ENCHANTED_STONE_TABLET,
+                new Item.Properties().group(MagicMod.tab).maxStackSize(1));
         ENCHANTED_STONE_TABLET_ITEM.setRegistryName(ENCHANTED_STONE_TABLET.getRegistryName());
         event.getRegistry().registerAll(WAND_TABLE_ITEM, AMETHYST_SILT_ORE_ITEM, AMETHYST_ORE_ITEM, SILT_STONE_ITEM,
                 SILT_STONE_BRICKS_ITEM, SILT_STONE_SLAB_ITEM, SILT_STONE_BRICK_SLAB_ITEM, SILT_STONE_STAIRS_ITEM,
