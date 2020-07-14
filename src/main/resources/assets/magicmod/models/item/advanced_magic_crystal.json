@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "magicmod:item/advanced_magic_crystal"
+    }
+}
