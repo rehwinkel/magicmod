@@ -64,7 +64,7 @@ public class WandItem extends Item {
 
     public List<Spell> readSpells(ItemStack stack) {
         if (stack.hasTag() && stack.getTag().contains("Spells")) {
-            return stack.getTag().getList("Spells", 8).stream().map(str -> Spell.read(str))
+            return stack.getTag().getList("Spells", 8).stream().map(str -> Spell.read(str.getString()))
                     .collect(Collectors.toList());
         } else {
             return Collections.emptyList();

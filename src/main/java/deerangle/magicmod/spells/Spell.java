@@ -4,7 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.StringNBT;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistryEntry;
@@ -37,15 +37,14 @@ public class Spell extends ForgeRegistryEntry<Spell> {
         return StringNBT.valueOf(this.getRegistryName().toString());
     }
 
-    public static Spell read(INBT nbt) {
-        String str = nbt.getString();
-        if (str.isEmpty()) {
+    public static Spell read(String path) {
+        if (path.isEmpty()) {
             return null;
         }
-        return GameRegistry.findRegistry(Spell.class).getValue(new ResourceLocation(nbt.getString()));
+        return GameRegistry.findRegistry(Spell.class).getValue(new ResourceLocation(path));
     }
 
-    public ITextComponent getTextComponent() {
+    public IFormattableTextComponent getTextComponent() {
         return new TranslationTextComponent(
                 "spell." + this.getRegistryName().getNamespace() + "." + this.getRegistryName().getPath());
     }

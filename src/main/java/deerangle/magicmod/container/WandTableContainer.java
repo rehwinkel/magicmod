@@ -4,17 +4,15 @@ import deerangle.magicmod.block.BlockRegistry;
 import deerangle.magicmod.container.slot.StoneTabletSlot;
 import deerangle.magicmod.container.slot.WandSlot;
 import deerangle.magicmod.item.ItemRegistry;
+import deerangle.magicmod.item.StoneTabletItem;
 import deerangle.magicmod.item.WandItem;
 import deerangle.magicmod.spells.Spell;
-import deerangle.magicmod.spells.SpellRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.FurnaceContainer;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nullable;
 
@@ -63,7 +61,7 @@ public class WandTableContainer extends Container {
     public Spell getTabletSpell() {
         ItemStack tablet = this.getSlot(1).getStack();
         if (!tablet.isEmpty() && tablet.getItem() == new ItemStack(BlockRegistry.ENCHANTED_STONE_TABLET).getItem()) {
-            return SpellRegistry.ELECTRO; //TODO: fix
+            return ((StoneTabletItem) tablet.getItem()).readSpell(tablet);
         }
         return null;
     }
