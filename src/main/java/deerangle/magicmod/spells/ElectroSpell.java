@@ -11,6 +11,14 @@ public class ElectroSpell extends Spell {
         super(cooldown);
     }
 
+    public int getXOffset() {
+        return 0;
+    }
+
+    public int getYOffset() {
+        return 0;
+    }
+
     @Override
     public boolean cast(PlayerEntity player) {
         World world = player.getEntityWorld();

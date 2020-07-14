@@ -17,9 +17,12 @@ public class Spell extends ForgeRegistryEntry<Spell> {
         this.cooldown = cooldown;
     }
 
-    public ResourceLocation getIconLocation() {
-        ResourceLocation base = this.getRegistryName();
-        return new ResourceLocation(base.getNamespace(), "textures/spells/" + base.getPath() + ".png");
+    public int getXOffset() {
+        return 0;
+    }
+
+    public int getYOffset() {
+        return 0;
     }
 
     public boolean cast(PlayerEntity player) {

@@ -8,7 +8,6 @@ import deerangle.magicmod.item.WandItem;
 import deerangle.magicmod.network.ApplySpellMessage;
 import deerangle.magicmod.network.PacketHandler;
 import deerangle.magicmod.spells.Spell;
-import deerangle.magicmod.spells.SpellRegistry;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
@@ -134,17 +133,17 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
                 startX = 20;
             }
             for (Spell spell : spells) {
-                if (spell == SpellRegistry.ELECTRO) {
-                    drawSpellIcon(matrixStack, guiLeft + 58 + startX, guiTop + 35, 0, 0);
+                if (spell != null) {
+                    drawSpellIcon(matrixStack, guiLeft + 58 + startX, guiTop + 35, spell);
                 }
                 startX += 20;
             }
         }
     }
 
-    public void drawSpellIcon(MatrixStack matrixStack, int x, int y, int textureX, int textureY) {
+    public void drawSpellIcon(MatrixStack matrixStack, int x, int y, Spell spell) {
         this.field_230706_i_.getTextureManager().bindTexture(SPELL_ICONS_TEXTURE);
-        func_238464_a_(matrixStack, x, y, 3, (float) textureX, (float) textureY, 16, 16, 16, 16);
+        func_238464_a_(matrixStack, x, y, 3, (float) spell.getXOffset(), (float) spell.getYOffset(), 16, 16, 16, 16);
     }
 
     @Override
