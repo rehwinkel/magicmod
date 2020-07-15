@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/altar"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/altar"
     }
+  }
 }

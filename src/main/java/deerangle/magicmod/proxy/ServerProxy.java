@@ -4,7 +4,7 @@ public class ServerProxy implements Proxy {
 
     @Override
     public void init() {
-        
+
     }
 
     @Override
@@ -16,5 +16,5 @@ public class ServerProxy implements Proxy {
     public void clientSetup() {
 
     }
-    
+
 }

@@ -1,19 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-      "  #",
-      " D ",
-      "#  "
-    ],
-    "key": {
-      "#": {
-        "item": "magicmod:amethyst"
-      },
-      "D": {
-        "item": "minecraft:stick"
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " D ",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "magicmod:amethyst"
     },
-    "result": {
-      "item": "magicmod:basic_wand"
+    "D": {
+      "item": "minecraft:stick"
     }
+  },
+  "result": {
+    "item": "magicmod:basic_wand"
   }
+}

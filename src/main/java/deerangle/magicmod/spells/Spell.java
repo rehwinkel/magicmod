@@ -17,6 +17,13 @@ public class Spell extends ForgeRegistryEntry<Spell> {
         this.cooldown = cooldown;
     }
 
+    public static Spell read(String path) {
+        if (path.isEmpty()) {
+            return null;
+        }
+        return GameRegistry.findRegistry(Spell.class).getValue(new ResourceLocation(path));
+    }
+
     public int getXOffset() {
         return 0;
     }
@@ -35,13 +42,6 @@ public class Spell extends ForgeRegistryEntry<Spell> {
 
     public INBT write() {
         return StringNBT.valueOf(this.getRegistryName().toString());
-    }
-
-    public static Spell read(String path) {
-        if (path.isEmpty()) {
-            return null;
-        }
-        return GameRegistry.findRegistry(Spell.class).getValue(new ResourceLocation(path));
     }
 
     public IFormattableTextComponent getTextComponent() {

@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/enchanted_stone_tablet"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/enchanted_stone_tablet"
     }
+  }
 }

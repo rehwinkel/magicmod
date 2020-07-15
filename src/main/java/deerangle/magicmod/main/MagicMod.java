@@ -42,6 +42,11 @@ public class MagicMod {
         PacketHandler.registerPackets();
     }
 
+    @SubscribeEvent
+    public static void createRegistries(RegistryEvent.NewRegistry event) {
+        new RegistryBuilder<Spell>().setName(new ResourceLocation("magicmod", "spells")).setType(Spell.class).create();
+    }
+
     private void setup(FMLCommonSetupEvent event) {
         for (Biome b : Biome.BIOMES) {
             WorldGen.addAmethystOre(b);
@@ -52,11 +57,6 @@ public class MagicMod {
 
     private void clientSetup(FMLClientSetupEvent event) {
         proxy.clientSetup();
-    }
-
-    @SubscribeEvent
-    public static void createRegistries(RegistryEvent.NewRegistry event) {
-        new RegistryBuilder<Spell>().setName(new ResourceLocation("magicmod", "spells")).setType(Spell.class).create();
     }
 
 }

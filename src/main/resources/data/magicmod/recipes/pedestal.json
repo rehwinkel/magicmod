@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-      "#B#",
-      "###",
-      " # "
-    ],
-    "key": {
-      "#": {
-        "item": "magicmod:silt_stone"
-      },
-      "B": {
-        "item": "magicmod:amethyst"
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "###",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "magicmod:silt_stone"
     },
-    "result": {
-      "item": "magicmod:pedestal",
-      "count": 1
+    "B": {
+      "item": "magicmod:amethyst"
     }
+  },
+  "result": {
+    "item": "magicmod:pedestal",
+    "count": 1
   }
+}

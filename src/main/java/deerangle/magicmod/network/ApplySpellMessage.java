@@ -1,7 +1,6 @@
 package deerangle.magicmod.network;
 
 import deerangle.magicmod.container.WandTableContainer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;

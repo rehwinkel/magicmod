@@ -1,6 +1,6 @@
 {
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "magicmod:item/wind_crystal"
-    }
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "magicmod:item/wind_crystal"
+  }
 }

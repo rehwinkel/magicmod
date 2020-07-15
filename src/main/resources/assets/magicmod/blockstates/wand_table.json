@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/wand_table"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/wand_table"
     }
+  }
 }

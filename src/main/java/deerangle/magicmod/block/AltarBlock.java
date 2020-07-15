@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
 
 public class AltarBlock extends Block {
 
-    private static final VoxelShape SHAPE = VoxelShapes.or(Block.makeCuboidShape(0, 0, 0, 16, 6, 16), Block.makeCuboidShape(1, 6, 1, 15, 13, 15));
+    private static final VoxelShape SHAPE = VoxelShapes
+            .or(Block.makeCuboidShape(0, 0, 0, 16, 6, 16), Block.makeCuboidShape(1, 6, 1, 15, 13, 15));
 
     public AltarBlock(Block.Properties properties) {
         super(properties);

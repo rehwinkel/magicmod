@@ -1,22 +1,22 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-      " B ",
-      "D#D",
-      "###"
-    ],
-    "key": {
-      "B": {
-        "item": "magicmod:basic_wand"
-      },
-      "#": {
-        "item": "minecraft:obsidian"
-      },
-      "D": {
-        "item": "magicmod:amethyst"
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "D#D",
+    "###"
+  ],
+  "key": {
+    "B": {
+      "item": "magicmod:basic_wand"
     },
-    "result": {
-      "item": "magicmod:wand_table"
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "magicmod:amethyst"
     }
+  },
+  "result": {
+    "item": "magicmod:wand_table"
   }
+}

@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/amethyst_silt_ore"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/amethyst_silt_ore"
     }
+  }
 }

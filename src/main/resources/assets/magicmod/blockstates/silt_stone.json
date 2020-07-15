@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/silt_stone"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/silt_stone"
     }
+  }
 }

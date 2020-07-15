@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "magicmod:block/amethyst_block"
-        }
+  "variants": {
+    "": {
+      "model": "magicmod:block/amethyst_block"
     }
+  }
 }
