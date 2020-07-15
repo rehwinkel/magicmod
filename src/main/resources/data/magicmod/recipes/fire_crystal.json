@@ -1,0 +1,24 @@
+{
+  "type": "magicmod:altar_ritual",
+  "ingredients": [
+    {
+      "item": "magicmod:silt_stone"
+    },
+    {
+      "item": "magicmod:silt_stone"
+    },
+    {
+      "item": "magicmod:silt_stone"
+    },
+    {
+      "item": "magicmod:silt_stone"
+    }
+  ],
+  "center": {
+    "item": "magicmod:amethyst"
+  },
+  "result": {
+    "item": "magicmod:pedestal",
+    "count": 1
+  }
+}
