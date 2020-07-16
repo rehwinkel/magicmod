@@ -1,5 +1,6 @@
 {
   "type": "magicmod:altar_ritual",
+  "activation": "click",
   "ingredients": [
     {
       "item": "magicmod:silt_stone"

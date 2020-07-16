@@ -22,12 +22,14 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
     public static final IRecipeSerializer<AltarRitualRecipe> SERIALIZER = new Serializer();
 
     private final ResourceLocation id;
+    private final Activation activation;
     private final Ingredient centerInput;
     private final List<Ingredient> otherInputs;
     private final ItemStack output;
 
-    public AltarRitualRecipe(ResourceLocation id, Ingredient centerInput, List<Ingredient> otherInputs, ItemStack output) {
+    public AltarRitualRecipe(ResourceLocation id, Activation activation, Ingredient centerInput, List<Ingredient> otherInputs, ItemStack output) {
         this.id = id;
+        this.activation = activation;
         this.centerInput = centerInput;
         assert otherInputs.size() == 4;
         this.otherInputs = otherInputs;
@@ -83,13 +85,14 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
         @Override
         public AltarRitualRecipe read(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> ingredients = readIngredients(JSONUtils.getJsonArray(json, "ingredients"));
+            Activation act = Activation.from(JSONUtils.getString(json, "activation"));
             Ingredient center = Ingredient.deserialize(json.get("center"));
             assert !center.hasNoMatchingItems();
             if (ingredients.size() != 4) {
                 throw new JsonParseException("Invalid ingredient count for recipe (must be exactly 4)");
             }
             ItemStack result = ShapedRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
-            return new AltarRitualRecipe(recipeId, center, ingredients, result);
+            return new AltarRitualRecipe(recipeId, act, center, ingredients, result);
         }
 
         private NonNullList<Ingredient> readIngredients(JsonArray ingredients) {
@@ -107,18 +110,20 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
         @Override
         public AltarRitualRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
             ItemStack output = buffer.readItemStack();
+            Activation act = buffer.readEnumValue(Activation.class);
             Ingredient center = Ingredient.read(buffer);
             int otherLength = buffer.readInt();
             NonNullList<Ingredient> other = NonNullList.create();
             for (int i = 0; i < otherLength; i++) {
                 other.add(Ingredient.read(buffer));
             }
-            return new AltarRitualRecipe(recipeId, center, other, output);
+            return new AltarRitualRecipe(recipeId, act, center, other, output);
         }
 
         @Override
         public void write(PacketBuffer buffer, AltarRitualRecipe recipe) {
             buffer.writeItemStack(recipe.output);
+            buffer.writeEnumValue(recipe.activation);
             recipe.centerInput.write(buffer);
             buffer.writeInt(recipe.otherInputs.size());
             for (Ingredient ingredient : recipe.otherInputs) {
@@ -126,5 +131,25 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
             }
         }
 
+    }
+
+    private enum Activation {
+        CLICK("click"),
+        ;
+        String name;
+
+        Activation(String name) {
+            this.name = name;
+        }
+
+        @Nullable
+        public static Activation from(String name) {
+            for (Activation a : Activation.values()) {
+                if (a.name.equals(name)) {
+                    return a;
+                }
+            }
+            return null;
+        }
     }
 }
