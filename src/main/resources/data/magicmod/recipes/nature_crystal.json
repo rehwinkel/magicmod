@@ -3,23 +3,23 @@
   "activation": "click",
   "ingredients": [
     {
-      "item": "magicmod:silt_stone"
+      "item": "minecraft:cactus"
     },
     {
-      "item": "magicmod:silt_stone"
+      "tag": "minecraft:sapling"
     },
     {
-      "item": "magicmod:silt_stone"
+      "tag": "magicmod:seeds"
     },
     {
-      "item": "magicmod:silt_stone"
+      "item": "minecraft:kelp"
     }
   ],
   "center": {
     "item": "magicmod:amethyst"
   },
   "result": {
-    "item": "magicmod:pedestal",
+    "item": "magicmod:nature_crystal",
     "count": 1
   }
 }
