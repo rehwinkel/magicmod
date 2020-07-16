@@ -1,0 +1,25 @@
+{
+    "type": "magicmod:altar_ritual",
+    "activation": "click",
+    "ingredients": [
+      {
+        "item": "minecraft:ice"
+      },
+      {
+        "item": "minecraft:packed_ice"
+      },
+      {
+        "item": "minecraft:blue_ice"
+      },
+      {
+        "item": "minecraft:water_bucket"
+      }
+    ],
+    "center": {
+      "item": "magicmod:amethyst"
+    },
+    "result": {
+      "item": "magicmod:water_crystal",
+      "count": 1
+    }
+  }
