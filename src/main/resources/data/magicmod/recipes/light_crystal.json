@@ -1,0 +1,25 @@
+{
+    "type": "magicmod:altar_ritual",
+    "activation": "click",
+    "ingredients": [
+      {
+        "item": "minecraft:glowstone"
+      },
+      {
+        "item": "minecraft:torch"
+      },
+      {
+        "item": "minecraft:lantern"
+      },
+      {
+        "item": "minecraft:"
+      }
+    ],
+    "center": {
+      "item": "magicmod:amethyst"
+    },
+    "result": {
+      "item": "magicmod:light_crystal",
+      "count": 1
+    }
+  }
