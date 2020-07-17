@@ -34,6 +34,10 @@ public class AltarTileEntity extends ItemStandTileEntity {
         super(TileEntityRegistry.ALTAR);
     }
 
+    private Configuration getCurrentConfiguration() {
+        return null;
+    }
+
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap) {
@@ -67,4 +71,7 @@ public class AltarTileEntity extends ItemStandTileEntity {
         super.func_230337_a_(state, compound);
     }
 
+    private enum Configuration {
+        BASIC;
+    }
 }

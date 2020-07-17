@@ -19,7 +19,7 @@ public class TileEntityRegistry {
     public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
         WAND_TABLE = register(TileEntityType.Builder.create(WandTableTileEntity::new, BlockRegistry.WAND_TABLE),
                 "wand_table");
-        PEDESTAL = register(TileEntityType.Builder.create(PedestalTileEntity::new, BlockRegistry.PEDESTAL), "pedestal");
+        PEDESTAL = register(TileEntityType.Builder.create(PedestalTileEntity::new, BlockRegistry.PEDESTAL, BlockRegistry.BROKEN_PEDESTAL), "pedestal");
         ALTAR = register(TileEntityType.Builder.create(AltarTileEntity::new, BlockRegistry.ALTAR), "altar");
         event.getRegistry().registerAll(WAND_TABLE, PEDESTAL, ALTAR);
     }
