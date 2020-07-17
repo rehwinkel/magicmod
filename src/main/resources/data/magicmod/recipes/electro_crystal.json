@@ -1,25 +1,25 @@
 {
-    "type": "magicmod:altar_ritual",
-    "activation": "click",
-    "ingredients": [
-      {
-        "item": "minecraft:sugar"
-      },
-      {
-        "item": "minecraft:piston"
-      },
-      {
-        "item": "minecraft:gold_ingot"
-      },
-      {
-        "item": "minecraft:redstone_block"
-      }
-    ],
-    "center": {
-      "item": "magicmod:amethyst"
+  "type": "magicmod:altar_ritual",
+  "activation": "click",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
     },
-    "result": {
-      "item": "magicmod:electro_crystal",
-      "count": 1
+    {
+      "item": "minecraft:piston"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:redstone_block"
     }
+  ],
+  "center": {
+    "item": "magicmod:amethyst"
+  },
+  "result": {
+    "item": "magicmod:electro_crystal",
+    "count": 1
   }
+}

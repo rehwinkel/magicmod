@@ -7,7 +7,6 @@ import deerangle.magicmod.item.WandItem;
 import deerangle.magicmod.network.ApplySpellMessage;
 import deerangle.magicmod.network.PacketHandler;
 import deerangle.magicmod.spells.Spell;
-import net.minecraft.client.gui.screen.inventory.ChestScreen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
@@ -48,12 +47,12 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
                 .addButton(new Button(guiLeft + 96, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
                     buttonPressed(2);
                 }));
-        this.button3 = this.addButton(
-                new Button(guiLeft + 116, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+        this.button3 = this
+                .addButton(new Button(guiLeft + 116, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
                     buttonPressed(3);
                 }));
-        this.button4 = this.addButton(
-                new Button(guiLeft + 136, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
+        this.button4 = this
+                .addButton(new Button(guiLeft + 136, guiTop + 33, 20, 20, new StringTextComponent(""), (button) -> {
                     buttonPressed(4);
                 }));
         this.button0.active = false;
@@ -158,18 +157,15 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
     @Override
     // drawGuiForeground
     public void func_230451_b_(MatrixStack matrixStack, int mouseX, int mouseY) {
-        this.font.func_238422_b_(matrixStack, this.title, (float) this.field_238742_p_,
-                (float) this.field_238743_q_, 4210752);
-        this.font
-                .func_238422_b_(matrixStack, this.playerInventory.getDisplayName(), (float) this.field_238744_r_,
-                        (float) this.field_238745_s_, 4210752);
+        this.font.func_238422_b_(matrixStack, this.title, (float) this.field_238742_p_, (float) this.field_238743_q_,
+                4210752);
+        this.font.func_238422_b_(matrixStack, this.playerInventory.getDisplayName(), (float) this.field_238744_r_,
+                (float) this.field_238745_s_, 4210752);
 
         Spell spelle = this.container.getTabletSpell();
         if (spelle != null) {
             ITextComponent text = spelle.getTextComponent();
-            this.font
-                    .func_238422_b_(matrixStack, text, 106F - this.font.func_238414_a_(text) / 2F, 20F,
-                            4210752);
+            this.font.func_238422_b_(matrixStack, text, 106F - this.font.func_238414_a_(text) / 2F, 20F, 4210752);
         }
 
         ItemStack wand = this.container.getSlot(0).getStack();

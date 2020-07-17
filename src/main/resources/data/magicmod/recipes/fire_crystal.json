@@ -1,25 +1,25 @@
 {
-    "type": "magicmod:altar_ritual",
-    "activation": "click",
-    "ingredients": [
-      {
-        "item": "minecraft:blaze_powder"
-      },
-      {
-        "item": "minecraft:magma_block"
-      },
-      {
-        "item": "minecraft:coal_block"
-      },
-      {
-        "item": "minecraft:gunpowder"
-      }
-    ],
-    "center": {
-      "item": "magicmod:amethyst"
+  "type": "magicmod:altar_ritual",
+  "activation": "click",
+  "ingredients": [
+    {
+      "item": "minecraft:blaze_powder"
     },
-    "result": {
-      "item": "magicmod:fire_crystal",
-      "count": 1
+    {
+      "item": "minecraft:magma_block"
+    },
+    {
+      "item": "minecraft:coal_block"
+    },
+    {
+      "item": "minecraft:gunpowder"
     }
+  ],
+  "center": {
+    "item": "magicmod:amethyst"
+  },
+  "result": {
+    "item": "magicmod:fire_crystal",
+    "count": 1
   }
+}

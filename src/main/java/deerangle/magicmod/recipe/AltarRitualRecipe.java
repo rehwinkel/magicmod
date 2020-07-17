@@ -76,6 +76,26 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
         return RecipeRegistry.ALTAR_RITUAL_RECIPE;
     }
 
+    private enum Activation {
+        CLICK("click"),
+        ;
+        String name;
+
+        Activation(String name) {
+            this.name = name;
+        }
+
+        @Nullable
+        public static Activation from(String name) {
+            for (Activation a : Activation.values()) {
+                if (a.name.equals(name)) {
+                    return a;
+                }
+            }
+            return null;
+        }
+    }
+
     private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AltarRitualRecipe> {
 
         Serializer() {
@@ -131,25 +151,5 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
             }
         }
 
-    }
-
-    private enum Activation {
-        CLICK("click"),
-        ;
-        String name;
-
-        Activation(String name) {
-            this.name = name;
-        }
-
-        @Nullable
-        public static Activation from(String name) {
-            for (Activation a : Activation.values()) {
-                if (a.name.equals(name)) {
-                    return a;
-                }
-            }
-            return null;
-        }
     }
 }

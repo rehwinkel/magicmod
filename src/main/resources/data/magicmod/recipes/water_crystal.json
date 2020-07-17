@@ -1,25 +1,25 @@
 {
-    "type": "magicmod:altar_ritual",
-    "activation": "click",
-    "ingredients": [
-      {
-        "item": "minecraft:nautilus_shell"
-      },
-      {
-        "item": "minecraft:packed_ice"
-      },
-      {
-        "tag": "minecraft:fishes"
-      },
-      {
-        "item": "minecraft:water_bucket"
-      }
-    ],
-    "center": {
-      "item": "magicmod:amethyst"
+  "type": "magicmod:altar_ritual",
+  "activation": "click",
+  "ingredients": [
+    {
+      "item": "minecraft:nautilus_shell"
     },
-    "result": {
-      "item": "magicmod:water_crystal",
-      "count": 1
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "item": "minecraft:water_bucket"
     }
+  ],
+  "center": {
+    "item": "magicmod:amethyst"
+  },
+  "result": {
+    "item": "magicmod:water_crystal",
+    "count": 1
   }
+}

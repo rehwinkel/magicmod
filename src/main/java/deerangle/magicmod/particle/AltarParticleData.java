@@ -13,8 +13,6 @@ import java.util.Locale;
 
 public class AltarParticleData implements IParticleData {
 
-    private final double targetX, targetY, targetZ;
-
     public static final IParticleData.IDeserializer<AltarParticleData> DESERIALIZER = new IDeserializer<AltarParticleData>() {
         @Override
         public AltarParticleData deserialize(ParticleType<AltarParticleData> particleTypeIn, StringReader reader) throws CommandSyntaxException {
@@ -32,11 +30,11 @@ public class AltarParticleData implements IParticleData {
             return new AltarParticleData(buffer.readDouble(), buffer.readDouble(), buffer.readDouble());
         }
     };
-
     public static final Codec<AltarParticleData> CODEC = RecordCodecBuilder.create(c -> c
             .group(Codec.DOUBLE.fieldOf("x").forGetter(data -> data.targetX),
                     Codec.DOUBLE.fieldOf("y").forGetter(data -> data.targetY),
                     Codec.DOUBLE.fieldOf("z").forGetter(data -> data.targetZ)).apply(c, AltarParticleData::new));
+    private final double targetX, targetY, targetZ;
 
     public AltarParticleData(double targetX, double targetY, double targetZ) {
         this.targetX = targetX;

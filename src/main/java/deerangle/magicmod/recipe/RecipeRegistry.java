@@ -20,7 +20,8 @@ public class RecipeRegistry {
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipeSerializer<?>> event) {
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(ALTAR_RITUAL_RECIPE.toString()), ALTAR_RITUAL_RECIPE);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(ALTAR_RITUAL_RECIPE.toString()),
+                ALTAR_RITUAL_RECIPE);
         event.getRegistry().registerAll(AltarRitualRecipe.SERIALIZER);
     }
 
