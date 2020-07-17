@@ -18,6 +18,8 @@ public class PacketHandler {
                 RqUpdateItemStandPacket::deserialize, RqUpdateItemStandPacket::handle);
         INSTANCE.registerMessage(2, ApplySpellMessage.class, ApplySpellMessage::serialize,
                 ApplySpellMessage::deserialize, ApplySpellMessage::handle);
+        INSTANCE.registerMessage(3, SpawnMagicMessage.class, SpawnMagicMessage::serialize,
+                SpawnMagicMessage::deserialize, SpawnMagicMessage::handle);
     }
 
 }

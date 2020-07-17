@@ -1,20 +1,21 @@
 package deerangle.magicmod.block.entity;
 
 import deerangle.magicmod.block.BlockRegistry;
-import deerangle.magicmod.particle.ParticleRegistry;
+import deerangle.magicmod.network.PacketHandler;
+import deerangle.magicmod.network.SpawnMagicMessage;
 import deerangle.magicmod.recipe.AltarRitualRecipe;
 import deerangle.magicmod.recipe.RecipeRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -142,14 +143,29 @@ public class AltarTileEntity extends ItemStandTileEntity {
 
     @Override
     public void tick() {
+        BlockPos pedestalPos1 = getPos().add(2, 0, 2);
+        BlockPos pedestalPos2 = getPos().add(-2, 0, 2);
+        BlockPos pedestalPos3 = getPos().add(-2, 0, -2);
+        BlockPos pedestalPos4 = getPos().add(2, 0, -2);
+        Vector3d targetPos = Vector3d.func_237489_a_(getPos()).add(0, 0.4, 0);
+
         super.tick();
         if (this.ritualTimer > 0) {
             this.ritualTimer--;
-            if (getWorld().isRemote) {
-                //TODO: send packet to spawn on client
-                getWorld().addParticle(ParticleRegistry.MAGIC, getPos().getX(), getPos().getY(), getPos().getZ(), 0.0,
-                        0.0, 0.0);
-            }
+            PacketDistributor.PacketTarget target = PacketDistributor.NEAR.with(PacketDistributor.TargetPoint
+                    .p(getPos().getX(), getPos().getY(), getPos().getZ(), 64, getWorld().func_234923_W_()));
+            PacketHandler.INSTANCE.send(target,
+                    new SpawnMagicMessage(pedestalPos1.getX() + 0.5, pedestalPos1.getY() + 1, pedestalPos1.getZ() + 0.5,
+                            0.0, 2.0, 0.0, targetPos.getX(), targetPos.getY(), targetPos.getZ()));
+            PacketHandler.INSTANCE.send(target,
+                    new SpawnMagicMessage(pedestalPos2.getX() + 0.5, pedestalPos2.getY() + 1, pedestalPos2.getZ() + 0.5,
+                            0.0, 2.0, 0.0, targetPos.getX(), targetPos.getY(), targetPos.getZ()));
+            PacketHandler.INSTANCE.send(target,
+                    new SpawnMagicMessage(pedestalPos3.getX() + 0.5, pedestalPos3.getY() + 1, pedestalPos3.getZ() + 0.5,
+                            0.0, 2.0, 0.0, targetPos.getX(), targetPos.getY(), targetPos.getZ()));
+            PacketHandler.INSTANCE.send(target,
+                    new SpawnMagicMessage(pedestalPos4.getX() + 0.5, pedestalPos4.getY() + 1, pedestalPos4.getZ() + 0.5,
+                            0.0, 2.0, 0.0, targetPos.getX(), targetPos.getY(), targetPos.getZ()));
         }
     }
 
