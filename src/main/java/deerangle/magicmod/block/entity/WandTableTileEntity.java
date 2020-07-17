@@ -81,9 +81,9 @@ public class WandTableTileEntity extends ItemStandTileEntity implements INamedCo
     }
 
     @Override
-    public void func_230337_a_(BlockState state, CompoundNBT compound) {
+    public void read(BlockState state, CompoundNBT compound) {
         inventory.orElse(null).deserializeNBT(compound.getCompound("inventory"));
-        super.func_230337_a_(state, compound);
+        super.read(state, compound);
     }
 
 }

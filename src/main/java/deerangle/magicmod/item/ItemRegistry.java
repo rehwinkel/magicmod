@@ -51,7 +51,7 @@ public class ItemRegistry {
         event.getRegistry()
                 .registerAll(BASIC_WAND, ADVANCED_WAND, MASTER_WAND, AMETHYST, MAGIC_STICK, BASIC_MAGIC_CRYSTAL,
                         ADVANCED_MAGIC_CRYSTAL, MASTER_MAGIC_CRYSTAL, ELECTRO_CRYSTAL, NATURE_CRYSTAL, FIRE_CRYSTAL,
-                        WATER_CRYSTAL, WIND_CRYSTAL, WIND_CRYSTAL, EARTH_CRYSTAL);
+                        WATER_CRYSTAL, WIND_CRYSTAL, EARTH_CRYSTAL);
     }
 
 }

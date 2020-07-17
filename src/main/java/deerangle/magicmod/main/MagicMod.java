@@ -9,11 +9,11 @@ import deerangle.magicmod.spells.Spell;
 import deerangle.magicmod.world.WorldGen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -49,10 +49,12 @@ public class MagicMod {
     }
 
     private void setup(FMLCommonSetupEvent event) {
-        for (Biome b : Biome.BIOMES) {
-            WorldGen.addAmethystOre(b);
-            WorldGen.addSiltStone(b);
-        }
+        DeferredWorkQueue.runLater(() -> {
+            for (Biome b : Biome.BIOMES) {
+                WorldGen.addAmethystOre(b);
+                WorldGen.addSiltStone(b);
+            }
+        });
         proxy.setup();
     }
 

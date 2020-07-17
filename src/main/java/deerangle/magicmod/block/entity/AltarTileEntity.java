@@ -1,15 +1,18 @@
 package deerangle.magicmod.block.entity;
 
 import deerangle.magicmod.block.BlockRegistry;
+import deerangle.magicmod.particle.ParticleRegistry;
 import deerangle.magicmod.recipe.AltarRitualRecipe;
 import deerangle.magicmod.recipe.RecipeRegistry;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -33,6 +36,8 @@ public class AltarTileEntity extends ItemStandTileEntity {
         }
     });
 
+    private int ritualTimer;
+
     public AltarTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
     }
@@ -53,7 +58,7 @@ public class AltarTileEntity extends ItemStandTileEntity {
         BlockPos pedestalPos3 = getPos().add(-2, 0, -2);
         BlockPos pedestalPos4 = getPos().add(2, 0, -2);
 
-        if (config == Configuration.BASIC) {
+        if (ritualTimer == 0 && config == Configuration.BASIC) {
             ItemStack stack1 = getPedestalStack(pedestalPos1);
             ItemStack stack2 = getPedestalStack(pedestalPos2);
             ItemStack stack3 = getPedestalStack(pedestalPos3);
@@ -130,8 +135,22 @@ public class AltarTileEntity extends ItemStandTileEntity {
     }
 
     private void performRitual(AltarRitualRecipe recipe) {
+        ritualTimer = 200;
         System.out.println(recipe);
         System.out.println(recipe.getRecipeOutput());
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.ritualTimer > 0) {
+            this.ritualTimer--;
+            if (getWorld().isRemote) {
+                //TODO: send packet to spawn on client
+                getWorld().addParticle(ParticleRegistry.MAGIC, getPos().getX(), getPos().getY(), getPos().getZ(), 0.0,
+                        0.0, 0.0);
+            }
+        }
     }
 
     private Configuration getCurrentConfiguration() {
@@ -178,9 +197,9 @@ public class AltarTileEntity extends ItemStandTileEntity {
     }
 
     @Override
-    public void func_230337_a_(BlockState state, CompoundNBT compound) {
+    public void read(BlockState state, CompoundNBT compound) {
         inventory.orElse(null).deserializeNBT(compound.getCompound("inventory"));
-        super.func_230337_a_(state, compound);
+        super.read(state, compound);
     }
 
     private enum Configuration {
