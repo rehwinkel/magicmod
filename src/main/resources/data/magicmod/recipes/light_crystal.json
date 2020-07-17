@@ -3,23 +3,23 @@
     "activation": "click",
     "ingredients": [
       {
-        "item": "minecraft:blaze_powder"
+        "item": "minecraft:glowstone"
       },
       {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:torch"
       },
       {
-        "item": "minecraft:coal"
+        "item": "minecraft:lantern"
       },
       {
-        "item": "minecraft:lava_bucket"
+        "item": "minecraft:"
       }
     ],
     "center": {
       "item": "magicmod:amethyst"
     },
     "result": {
-      "item": "magicmod:fire_crystal",
+      "item": "magicmod:light_crystal",
       "count": 1
     }
   }

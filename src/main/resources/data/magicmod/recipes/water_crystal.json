@@ -3,23 +3,23 @@
     "activation": "click",
     "ingredients": [
       {
-        "item": "minecraft:blaze_powder"
+        "item": "minecraft:ice"
       },
       {
-        "item": "minecraft:magma_block"
+        "item": "minecraft:packed_ice"
       },
       {
-        "item": "minecraft:coal"
+        "item": "minecraft:blue_ice"
       },
       {
-        "item": "minecraft:lava_bucket"
+        "item": "minecraft:water_bucket"
       }
     ],
     "center": {
       "item": "magicmod:amethyst"
     },
     "result": {
-      "item": "magicmod:fire_crystal",
+      "item": "magicmod:water_crystal",
       "count": 1
     }
   }
