@@ -61,15 +61,18 @@ public class AltarBlock extends Block {
         if (worldIn.isRemote) {
             return ActionResultType.SUCCESS;
         } else {
-            IItemHandler inventory = worldIn.getTileEntity(pos)
-                    .getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElse(null);
+            AltarTileEntity tileEntity = (AltarTileEntity) worldIn.getTileEntity(pos);
+            IItemHandler inventory = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+                    .orElse(null);
             if (player.isSneaking()) {
                 if (player.addItemStackToInventory(inventory.extractItem(0, 64, true))) {
                     inventory.extractItem(0, 64, false);
                 }
             } else {
                 if (player.getHeldItem(handIn).isEmpty()) {
-                    player.setHeldItem(handIn, inventory.extractItem(0, 64, false));
+                    if (!tileEntity.activate()) {
+                        player.setHeldItem(handIn, inventory.extractItem(0, 64, false));
+                    }
                 } else {
                     player.setHeldItem(handIn, inventory.insertItem(0, player.getHeldItem(handIn), false));
                 }

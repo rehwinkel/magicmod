@@ -3,16 +3,16 @@
     "activation": "click",
     "ingredients": [
       {
-        "item": "minecraft:blaze_rod"
+        "item": "minecraft:sugar"
       },
       {
-        "item": "minecraft:glowstone_dust"
+        "item": "minecraft:piston"
       },
       {
         "item": "minecraft:gold_ingot"
       },
       {
-        "item": "minecraft:redstone"
+        "item": "minecraft:redstone_block"
       }
     ],
     "center": {

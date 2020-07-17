@@ -9,10 +9,10 @@
         "item": "minecraft:magma_block"
       },
       {
-        "item": "minecraft:coal"
+        "item": "minecraft:coal_block"
       },
       {
-        "item": "minecraft:lava_bucket"
+        "item": "minecraft:gunpowder"
       }
     ],
     "center": {
