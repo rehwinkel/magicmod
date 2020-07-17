@@ -1,0 +1,7 @@
+{
+  "block.altar.ritual": {
+    "sounds": [
+      "magicmod:ritual"
+    ]
+  }
+}

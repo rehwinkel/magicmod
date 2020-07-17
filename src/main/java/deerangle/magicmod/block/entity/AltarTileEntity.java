@@ -5,6 +5,7 @@ import deerangle.magicmod.network.PacketHandler;
 import deerangle.magicmod.network.SpawnMagicMessage;
 import deerangle.magicmod.recipe.AltarRitualRecipe;
 import deerangle.magicmod.recipe.RecipeRegistry;
+import deerangle.magicmod.sound.SoundRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.LightningBoltEntity;
@@ -145,7 +146,9 @@ public class AltarTileEntity extends ItemStandTileEntity {
     }
 
     private void performRitual(AltarRitualRecipe recipe) {
-        ritualTimer = 200;
+        ritualTimer = 300;
+        getWorld().playSound(null, getPos().getX() + 0.5, getPos().getY() + 0.5, getPos().getZ() + 0.5,
+                SoundRegistry.RITUAL, SoundCategory.BLOCKS, 3.0F, 1.0F);
         this.currentRecipe = recipe;
     }
 
@@ -153,8 +156,8 @@ public class AltarTileEntity extends ItemStandTileEntity {
         LightningBoltEntity entity = EntityType.LIGHTNING_BOLT.create(getWorld());
         entity.func_233576_c_(Vector3d.func_237489_a_(getPos()));
         getWorld().addEntity(entity);
-        getWorld().playSound(null, getPos().getX() + 0.5, getPos().getX() + 0.5, getPos().getX() + 0.5,
-                SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3.0F, 1.0F);
+        getWorld().playSound(null, getPos().getX() + 0.5, getPos().getY() + 0.5, getPos().getZ() + 0.5,
+                SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 10.0F, 1.0F);
         this.setStackToDisplay(this.currentRecipe.getRecipeOutput());
         BlockPos pedestalPos1 = getPos().add(2, 0, 2);
         BlockPos pedestalPos2 = getPos().add(-2, 0, 2);
