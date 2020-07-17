@@ -6,11 +6,15 @@ import deerangle.magicmod.network.SpawnMagicMessage;
 import deerangle.magicmod.recipe.AltarRitualRecipe;
 import deerangle.magicmod.recipe.RecipeRegistry;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.common.capabilities.Capability;
@@ -38,6 +42,7 @@ public class AltarTileEntity extends ItemStandTileEntity {
     });
 
     private int ritualTimer;
+    private AltarRitualRecipe currentRecipe;
 
     public AltarTileEntity(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
@@ -49,6 +54,10 @@ public class AltarTileEntity extends ItemStandTileEntity {
 
     private ItemStack getPedestalStack(BlockPos pos) {
         return ((PedestalTileEntity) getWorld().getTileEntity(pos)).getStackToDisplay();
+    }
+
+    private void removePedestalStack(BlockPos pos) {
+        ((PedestalTileEntity) getWorld().getTileEntity(pos)).setStackToDisplay(ItemStack.EMPTY);
     }
 
     public boolean activate() {
@@ -137,8 +146,25 @@ public class AltarTileEntity extends ItemStandTileEntity {
 
     private void performRitual(AltarRitualRecipe recipe) {
         ritualTimer = 200;
-        System.out.println(recipe);
-        System.out.println(recipe.getRecipeOutput());
+        this.currentRecipe = recipe;
+    }
+
+    private void finishRitual() {
+        LightningBoltEntity entity = EntityType.LIGHTNING_BOLT.create(getWorld());
+        entity.func_233576_c_(Vector3d.func_237489_a_(getPos()));
+        getWorld().addEntity(entity);
+        getWorld().playSound(null, getPos().getX() + 0.5, getPos().getX() + 0.5, getPos().getX() + 0.5,
+                SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3.0F, 1.0F);
+        this.setStackToDisplay(this.currentRecipe.getRecipeOutput());
+        BlockPos pedestalPos1 = getPos().add(2, 0, 2);
+        BlockPos pedestalPos2 = getPos().add(-2, 0, 2);
+        BlockPos pedestalPos3 = getPos().add(-2, 0, -2);
+        BlockPos pedestalPos4 = getPos().add(2, 0, -2);
+        this.removePedestalStack(pedestalPos1);
+        this.removePedestalStack(pedestalPos2);
+        this.removePedestalStack(pedestalPos3);
+        this.removePedestalStack(pedestalPos4);
+        this.currentRecipe = null;
     }
 
     @Override
@@ -166,6 +192,9 @@ public class AltarTileEntity extends ItemStandTileEntity {
             PacketHandler.INSTANCE.send(target,
                     new SpawnMagicMessage(pedestalPos4.getX() + 0.5, pedestalPos4.getY() + 1, pedestalPos4.getZ() + 0.5,
                             0.0, 2.0, 0.0, targetPos.getX(), targetPos.getY(), targetPos.getZ()));
+            if (this.ritualTimer == 0) {
+                this.finishRitual();
+            }
         }
     }
 
