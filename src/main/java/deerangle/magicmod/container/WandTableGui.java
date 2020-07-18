@@ -131,7 +131,7 @@ public class WandTableGui extends ContainerScreen<WandTableContainer> {
                     List<ITextComponent> tooltip = new ArrayList<>();
                     tooltip.add(spell == null ? new TranslationTextComponent("info.magicmod.no_spell") : spell
                             .getTextComponent());
-                    this.renderTooltip(matrixStack, tooltip, mouseX, mouseY, this.font);
+                    this.renderTooltip(matrixStack, tooltip, mouseX, mouseY);
                 }
                 startX += 20;
             }
