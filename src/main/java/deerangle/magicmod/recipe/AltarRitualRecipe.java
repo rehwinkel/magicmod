@@ -96,6 +96,14 @@ public class AltarRitualRecipe implements IRecipe<IInventory> {
         }
     }
 
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        ingredients.add(centerInput);
+        ingredients.addAll(otherInputs);
+        return ingredients;
+    }
+
     private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AltarRitualRecipe> {
 
         Serializer() {
