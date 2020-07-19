@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "#G#",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "magicmod:silt_stone"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "magicmod:stone_tablet"
+    }
+  }

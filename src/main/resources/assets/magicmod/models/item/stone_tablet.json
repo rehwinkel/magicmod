@@ -1,3 +1,6 @@
 {
-  "parent": "magicmod:block/stone_tablet"
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "magicmod:item/stone_tablet"
+  }
 }
