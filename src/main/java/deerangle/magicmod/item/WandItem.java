@@ -31,7 +31,7 @@ public class WandItem extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         Spell spell = this.getCurrentSpell(playerIn.getHeldItem(handIn));
-        if (spell != null && spell.cast(playerIn)) {
+        if (spell != null && spell.prepare_and_cast(worldIn, playerIn)) {
             playerIn.getCooldownTracker().setCooldown(this, spell.getCooldown());
             return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
         } else {

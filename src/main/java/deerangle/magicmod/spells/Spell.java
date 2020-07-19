@@ -6,6 +6,7 @@ import net.minecraft.nbt.StringNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -32,7 +33,7 @@ public class Spell extends ForgeRegistryEntry<Spell> {
         return 0;
     }
 
-    public boolean cast(PlayerEntity player) {
+    public boolean cast(World world, PlayerEntity caster, ISpellTarget target) {
         return false;
     }
 
@@ -49,4 +50,11 @@ public class Spell extends ForgeRegistryEntry<Spell> {
                 "spell." + this.getRegistryName().getNamespace() + "." + this.getRegistryName().getPath());
     }
 
+    public boolean prepare_and_cast(World worldIn, PlayerEntity playerIn) {
+        return this.cast(worldIn, playerIn, this.getTarget(worldIn, playerIn));
+    }
+
+    protected ISpellTarget getTarget(World worldIn, PlayerEntity playerIn) {
+        return new SelfSpellTarget(playerIn);
+    }
 }

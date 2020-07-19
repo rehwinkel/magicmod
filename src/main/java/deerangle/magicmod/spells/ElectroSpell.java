@@ -20,11 +20,18 @@ public class ElectroSpell extends Spell {
     }
 
     @Override
-    public boolean cast(PlayerEntity player) {
-        World world = player.getEntityWorld();
-        LightningBoltEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
-        lightning.func_233576_c_(player.getPositionVec());
-        world.addEntity(lightning);
-        return true;
+    public boolean cast(World world, PlayerEntity caster, ISpellTarget target) {
+        if (target.hit()) {
+            LightningBoltEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+            lightning.func_233576_c_(target.getVector());
+            world.addEntity(lightning);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    protected ISpellTarget getTarget(World worldIn, PlayerEntity playerIn) {
+        return new AimBlockSpellTarget(worldIn, playerIn, 20.0);
     }
 }
